@@ -105,7 +105,7 @@ export default function CareersPage() {
               <div className="relative">
                 <h2 className="heading-font text-3xl font-bold sm:text-4xl text-balance">Don't see the right role?</h2>
                 <p className="mx-auto mt-4 max-w-xl text-white/70 text-pretty">Send us your CV and we'll keep you in mind for future opportunities that match your expertise.</p>
-                <a href={`mailto:${siteConfig.email}?subject=General Career Application`} className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gold-gradient px-6 py-3.5 font-semibold text-navy-900 transition-opacity hover:opacity-90">
+                <a href={`mailto:${siteConfig.careersEmail}?subject=General Career Application`} className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gold-gradient px-6 py-3.5 font-semibold text-navy-900 transition-opacity hover:opacity-90">
                   Send Your CV <ArrowRight className="h-4 w-4" />
                 </a>
               </div>

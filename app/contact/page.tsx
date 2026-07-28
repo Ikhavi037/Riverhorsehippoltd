@@ -52,7 +52,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <ContactInfoCard icon={MapPin} title="Visit Our Office" lines={[siteConfig.address.line1, siteConfig.address.line2]} />
                 <ContactInfoCard icon={Phone} title="Call Us" lines={[siteConfig.phone]} href={`tel:${siteConfig.phone}`} />
-                <ContactInfoCard icon={Mail} title="Email Us" lines={[siteConfig.email]} href={`mailto:${siteConfig.email}`} />
+                <ContactInfoCard icon={Mail} title="Email Us" lines={[siteConfig.email, siteConfig.supportEmail]} href={`mailto:${siteConfig.email}`} />
                 <ContactInfoCard icon={Clock} title="Office Hours" lines={[siteConfig.hours, 'Saturday: 9:00 AM - 1:00 PM']} />
 
                 <a

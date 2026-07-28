@@ -5,7 +5,9 @@ export const siteConfig = {
   description:
     'Riverhorse Hippo Company Limited is a professional business advisory and financial services firm helping startups, SMEs, NGOs, corporates, investors, and public institutions achieve sustainable growth through accounting, taxation, audit, HR consulting, governance, digital transformation, and strategic business advisory services.',
   url: 'https://riverhorsehippo.com',
-  email: 'hippocompanyltd@gmail.com',
+  email: 'info@riverhorsehippoltd.com',
+  supportEmail: 'support@riverhorsehippoltd.com',
+  careersEmail: 'careers@riverhorsehippoltd.com',
   phone: '+254 786 658 137',
   whatsapp: '+254786658137',
   whatsappMessage: "Hello Riverhorse Hippo, I'd like to learn more about your services.",

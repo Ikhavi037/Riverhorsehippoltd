@@ -59,7 +59,7 @@ export function CareerApplicationForm({ jobTitle }: { jobTitle: string }) {
         </div>
         <div className="flex items-center gap-3 rounded-lg border border-dashed border-border bg-muted/30 p-4 text-sm text-muted-foreground">
           <Upload className="h-5 w-5 shrink-0 text-gold-500" />
-          <span>Email your CV to hippocompanyltd@gmail.com or attach it in your message above.</span>
+          <span>Email your CV to careers@riverhorsehippoltd.com or attach it in your message above.</span>
         </div>
         <Button type="submit" variant="gold" className="w-full" disabled={loading}>
           {loading ? 'Submitting...' : 'Submit Application'}

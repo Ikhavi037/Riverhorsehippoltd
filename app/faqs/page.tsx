@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/container';
 import { PageHero } from '@/components/section-heading';
 import { FadeIn } from '@/components/motion';
 import { BreadcrumbJsonLd, FaqJsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import {
   Accordion,
   AccordionContent,
@@ -13,12 +14,12 @@ import {
 } from '@/components/ui/accordion';
 import { faqs, faqCategories } from '@/lib/content';
 
-export const metadata: Metadata = {
-  title: 'FAQs — Frequently Asked Questions',
+export const metadata: Metadata = pageMetadata({
+  title: 'FAQs on Accounting, Tax & Audit in Nairobi | Riverhorse Hippo',
   description:
-    'Find answers to common questions about our accounting, tax, audit, and advisory services, pricing, audit independence, data security, and working with Riverhorse Hippo.',
-  alternates: { canonical: '/faqs' },
-};
+    'Answers to common questions about accounting, tax, audit and advisory services in Nairobi, Kenya — pricing, audit independence, data security and how to get started. Contact us today.',
+  path: '/faqs',
+});
 
 export default function FaqsPage() {
   return (

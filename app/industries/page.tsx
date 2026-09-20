@@ -5,15 +5,16 @@ import { Container } from '@/components/ui/container';
 import { PageHero } from '@/components/section-heading';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { industries } from '@/lib/industries';
 import { getIcon } from '@/lib/icon-map';
 
-export const metadata: Metadata = {
-  title: 'Industries We Serve — Sector-Specific Expertise',
+export const metadata: Metadata = pageMetadata({
+  title: 'Industries We Serve in Nairobi, Kenya | Riverhorse Hippo',
   description:
-    'We serve healthcare, education, construction, NGOs, retail, hospitality, manufacturing, technology, agriculture, government, and professional services with sector-specific financial expertise.',
-  alternates: { canonical: '/industries' },
-};
+    'Sector-specific accounting and advisory for healthcare, education, construction, NGOs, retail, manufacturing, tech and government in Nairobi, Kenya. Talk to our industry experts today.',
+  path: '/industries',
+});
 
 export default function IndustriesPage() {
   return (

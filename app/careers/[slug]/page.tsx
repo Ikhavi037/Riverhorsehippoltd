@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Check, MapPin, Briefcase, Clock, Building } from
 import { Container } from '@/components/ui/container';
 import { FadeIn } from '@/components/motion';
 import { BreadcrumbJsonLd, JsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { careers, getCareer } from '@/lib/careers';
 import { siteConfig } from '@/lib/site-config';
 import { CareerApplicationForm } from '@/components/career-application-form';
@@ -16,11 +17,9 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const career = getCareer(params.slug);
   if (!career) return { title: 'Position Not Found' };
-  return {
-    title: `${career.title} — Career Opportunity`,
-    description: career.description,
-    alternates: { canonical: `/careers/${career.slug}` },
-  };
+  const title = `${career.title} Job in Nairobi, Kenya | Riverhorse Hippo`;
+  const description = `Apply for ${career.title} at Riverhorse Hippo in Nairobi, Kenya. ${career.department}, ${career.location}. ${career.description.slice(0, 80)} Apply today.`;
+  return pageMetadata({ title, description, path: `/careers/${career.slug}` });
 }
 
 export default function CareerDetailPage({ params }: { params: { slug: string } }) {

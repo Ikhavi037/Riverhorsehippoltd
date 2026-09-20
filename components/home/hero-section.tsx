@@ -31,6 +31,7 @@ export function HeroSection() {
               Advisory.{' '}
               <span className="text-gradient-gold">Done Right.</span>
             </h1>
+            <p className="mt-2 text-base font-medium text-gold-400">Accounting and audit firm in Nairobi, Kenya</p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 text-pretty">
               Riverhorse Hippo Company Limited helps startups, SMEs, NGOs, corporates, and public institutions achieve sustainable growth through expert financial services and strategic advisory.
             </p>

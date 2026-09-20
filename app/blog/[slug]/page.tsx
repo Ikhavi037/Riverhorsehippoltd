@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Calendar, Clock, User } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { FadeIn } from '@/components/motion';
 import { BreadcrumbJsonLd, JsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { blogPosts, getBlogPost } from '@/lib/blog';
 import { siteConfig } from '@/lib/site-config';
 
@@ -15,19 +16,14 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = getBlogPost(params.slug);
   if (!post) return { title: 'Article Not Found' };
-  return {
-    title: post.title,
+  return pageMetadata({
+    title: post.title.length > 60 ? post.title.slice(0, 59).trimEnd() + '…' : post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: 'article',
-      publishedTime: post.date,
-      authors: [post.author],
-      images: [{ url: post.image }],
-    },
-  };
+    path: `/blog/${post.slug}`,
+    type: 'article',
+    publishedTime: post.date,
+    authors: [post.author],
+  });
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
@@ -51,7 +47,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           '@type': 'BlogPosting',
           headline: post.title,
           description: post.excerpt,
-          image: post.image,
+          image: '/og-image.png',
           datePublished: post.date,
           author: { '@type': 'Person', name: post.author },
           publisher: { '@type': 'Organization', name: siteConfig.name },
@@ -80,7 +76,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <Container>
           <div className="overflow-hidden rounded-2xl border border-border shadow-xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={post.image} alt={post.title} className="aspect-[21/9] w-full object-cover" />
+            <img src={post.image} alt={post.title} width={1200} height={630} className="aspect-[21/9] w-full object-cover" />
           </div>
         </Container>
       </div>
@@ -121,7 +117,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <Link key={rp.slug} href={`/blog/${rp.slug}`} className="group flex overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-lg">
                   <div className="relative w-32 shrink-0 overflow-hidden bg-muted">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={rp.image} alt={rp.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    <img src={rp.image} alt={rp.title} width={128} height={128} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="flex flex-col justify-center p-5">
                     <span className="text-xs font-semibold uppercase tracking-wider text-gold-600 dark:text-gold-400">{rp.category}</span>

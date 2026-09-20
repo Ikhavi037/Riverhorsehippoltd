@@ -2,13 +2,15 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui/container';
 import { PageHero } from '@/components/section-heading';
 import { FadeIn } from '@/components/motion';
+import { pageMetadata } from '@/lib/seo';
 import { siteConfig } from '@/lib/site-config';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: 'The terms and conditions governing the use of Riverhorse Hippo Company Limited services and website.',
-  alternates: { canonical: '/terms' },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Terms of Service | Riverhorse Hippo',
+  description:
+    'The terms and conditions governing the use of Riverhorse Hippo Company Limited services and website for clients in Nairobi, Kenya. Review our terms before engaging our firm.',
+  path: '/terms',
+});
 
 export default function TermsPage() {
   return (

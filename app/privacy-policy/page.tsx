@@ -2,13 +2,15 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui/container';
 import { PageHero } from '@/components/section-heading';
 import { FadeIn } from '@/components/motion';
+import { pageMetadata } from '@/lib/seo';
 import { siteConfig } from '@/lib/site-config';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'How Riverhorse Hippo Company Limited collects, uses, and protects your personal and financial data.',
-  alternates: { canonical: '/privacy-policy' },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Privacy Policy | Riverhorse Hippo',
+  description:
+    'How Riverhorse Hippo Company Limited collects, uses and protects your personal and financial data. Read our full privacy policy for clients and website visitors in Nairobi, Kenya.',
+  path: '/privacy-policy',
+});
 
 export default function PrivacyPolicyPage() {
   return (

@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Check, TrendingUp } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { FadeIn } from '@/components/motion';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { caseStudies, getCaseStudy } from '@/lib/case-studies';
 
 export function generateStaticParams() {
@@ -14,16 +15,9 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const study = getCaseStudy(params.slug);
   if (!study) return { title: 'Case Study Not Found' };
-  return {
-    title: `${study.title} — Case Study`,
-    description: study.summary,
-    alternates: { canonical: `/case-studies/${study.slug}` },
-    openGraph: {
-      title: `${study.title} | Riverhorse Hippo Case Studies`,
-      description: study.summary,
-      images: [{ url: study.image }],
-    },
-  };
+  const title = `${study.client} Case Study in Nairobi | Riverhorse Hippo`;
+  const description = `How Riverhorse Hippo helped ${study.client} achieve measurable results in ${study.industry.toLowerCase()} in Nairobi, Kenya. ${study.summary.slice(0, 80)} Read the full case study.`;
+  return pageMetadata({ title, description, path: `/case-studies/${study.slug}` });
 }
 
 export default function CaseStudyDetailPage({ params }: { params: { slug: string } }) {

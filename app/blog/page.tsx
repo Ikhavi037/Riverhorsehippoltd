@@ -5,14 +5,15 @@ import { Container } from '@/components/ui/container';
 import { PageHero } from '@/components/section-heading';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { blogPosts } from '@/lib/blog';
 
-export const metadata: Metadata = {
-  title: 'Blog — Financial Insights & Advisory',
+export const metadata: Metadata = pageMetadata({
+  title: 'Finance & Tax Insights Blog in Nairobi | Riverhorse Hippo',
   description:
-    'Expert insights on accounting, tax planning, audit, governance, NGO compliance, digital transformation, and business advisory from the Riverhorse Hippo team.',
-  alternates: { canonical: '/blog' },
-};
+    'Expert insights on accounting, tax planning, audit, governance, NGO compliance and digital transformation from our Nairobi advisory team. Read the latest articles and stay ahead.',
+  path: '/blog',
+});
 
 export default function BlogPage() {
   const featured = blogPosts.find((p) => p.featured) ?? blogPosts[0];
@@ -34,7 +35,7 @@ export default function BlogPage() {
             <Link href={`/blog/${featured.slug}`} className="group grid overflow-hidden rounded-3xl border border-border bg-card shadow-md transition-all hover:shadow-xl lg:grid-cols-2">
               <div className="relative aspect-[16/10] overflow-hidden bg-muted lg:aspect-auto">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={featured.image} alt={featured.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <img src={featured.image} alt={featured.title} width={800} height={500} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <span className="absolute left-4 top-4 rounded-full bg-gold-500 px-3 py-1 text-xs font-semibold text-navy-900">Featured</span>
               </div>
               <div className="flex flex-col justify-center p-8 lg:p-12">
@@ -62,7 +63,7 @@ export default function BlogPage() {
                 <Link href={`/blog/${post.slug}`} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    <img src={post.image} alt={post.title} width={400} height={250} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <span className="absolute left-3 top-3 rounded-full bg-navy-900/90 px-3 py-1 text-xs font-medium text-gold-400 backdrop-blur-sm">{post.category}</span>
                   </div>
                   <div className="flex flex-1 flex-col p-5">

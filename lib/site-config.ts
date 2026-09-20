@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: 'Accounting. Tax. Audit. Advisory. Done Right.',
   description:
     'Riverhorse Hippo Company Limited is a professional business advisory and financial services firm helping startups, SMEs, NGOs, corporates, investors, and public institutions achieve sustainable growth through accounting, taxation, audit, HR consulting, governance, digital transformation, and strategic business advisory services.',
-  url: 'https://riverhorsehippo.com',
+  url: 'https://riverhorsehippoltd.com',
   email: 'info@riverhorsehippoltd.com',
   supportEmail: 'support@riverhorsehippoltd.com',
   careersEmail: 'careers@riverhorsehippoltd.com',

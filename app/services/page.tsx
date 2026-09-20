@@ -5,15 +5,16 @@ import { Container } from '@/components/ui/container';
 import { PageHero, SectionHeading } from '@/components/section-heading';
 import { StaggerContainer, StaggerItem } from '@/components/motion';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { services, serviceCategories } from '@/lib/services';
 import { getIcon } from '@/lib/icon-map';
 
-export const metadata: Metadata = {
-  title: 'Services — Accounting, Tax, Audit & Advisory',
+export const metadata: Metadata = pageMetadata({
+  title: 'Accounting, Tax & Audit Services in Nairobi | Riverhorse Hippo',
   description:
-    'Explore our full range of professional services: accounting, bookkeeping, payroll, tax, external audit, internal audit, forensic audit, business consulting, governance, HR, Virtual CFO, digital transformation, business registration, real estate, and immigration.',
-  alternates: { canonical: '/services' },
-};
+    'Full-range accounting, bookkeeping, payroll, tax, audit, advisory and corporate services in Nairobi, Kenya. Fixed-fee pricing for SMEs, NGOs and corporates. Book a free consultation.',
+  path: '/services',
+});
 
 export default function ServicesPage() {
   return (

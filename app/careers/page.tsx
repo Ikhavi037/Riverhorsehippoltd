@@ -5,15 +5,16 @@ import { Container } from '@/components/ui/container';
 import { PageHero } from '@/components/section-heading';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion';
 import { BreadcrumbJsonLd, JsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { careers } from '@/lib/careers';
 import { siteConfig } from '@/lib/site-config';
 
-export const metadata: Metadata = {
-  title: 'Careers — Join the Riverhorse Hippo Team',
+export const metadata: Metadata = pageMetadata({
+  title: 'Careers at Our Nairobi Accounting Firm | Riverhorse Hippo',
   description:
-    'Explore career opportunities at Riverhorse Hippo Company Limited. We are always looking for talented professionals in audit, tax, advisory, and corporate services to join our growing team.',
-  alternates: { canonical: '/careers' },
-};
+    'Join Riverhorse Hippo in Nairobi — careers in audit, tax, advisory and corporate services. CPA/ACCA study support, mentorship and clear progression. View open roles and apply today.',
+  path: '/careers',
+});
 
 const perks = [
   { title: 'Professional Development', text: 'Full support for CPA/ACCA studies, conferences, and continuous learning.' },

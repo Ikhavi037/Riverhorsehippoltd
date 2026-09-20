@@ -5,14 +5,15 @@ import { Container } from '@/components/ui/container';
 import { PageHero } from '@/components/section-heading';
 import { StaggerContainer, StaggerItem } from '@/components/motion';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { caseStudies } from '@/lib/case-studies';
 
-export const metadata: Metadata = {
-  title: 'Case Studies — Real Results for Real Clients',
+export const metadata: Metadata = pageMetadata({
+  title: 'Case Studies & Client Results in Nairobi | Riverhorse Hippo',
   description:
-    'Explore how Riverhorse Hippo has helped startups, NGOs, construction firms, manufacturers, and retailers achieve measurable financial results through our advisory and accounting services.',
-  alternates: { canonical: '/case-studies' },
-};
+    'Real results for Nairobi startups, NGOs, construction firms and manufacturers. See how our accounting, tax and advisory services drove measurable financial outcomes. Get started today.',
+  path: '/case-studies',
+});
 
 export default function CaseStudiesPage() {
   return (
@@ -37,7 +38,9 @@ export default function CaseStudiesPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={study.image}
-                      alt={study.title}
+                      alt={`${study.title} — ${study.industry} case study in Nairobi, Kenya`}
+                      width={600}
+                      height={338}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />

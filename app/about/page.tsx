@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Target, Eye, HeartHandshake, Award, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/container';
 import { PageHero, SectionHeading } from '@/components/section-heading';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion';
@@ -8,12 +9,12 @@ import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { stats } from '@/lib/content';
 import { AnimatedCounter } from '@/components/animated-counter';
 
-export const metadata: Metadata = {
-  title: 'About Us — Professional Financial Services Firm',
+export const metadata: Metadata = pageMetadata({
+  title: 'About Our Firm in Nairobi | Riverhorse Hippo',
   description:
-    'Learn about Riverhorse Hippo Company Limited — our mission, values, and team of experienced professionals delivering accounting, tax, audit, and advisory services across East Africa.',
-  alternates: { canonical: '/about' },
-};
+    'Riverhorse Hippo is a Nairobi accounting, tax, audit and advisory firm serving startups, SMEs and NGOs across East Africa. Meet our Big Four–trained partners. Get in touch today.',
+  path: '/about',
+});
 
 const values = [
   { icon: Target, title: 'Our Mission', text: 'To empower organizations with the financial clarity, strategic insight, and professional support they need to achieve sustainable growth and lasting impact.' },

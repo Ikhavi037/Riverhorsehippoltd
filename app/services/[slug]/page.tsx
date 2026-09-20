@@ -5,6 +5,7 @@ import { Check, ArrowRight, ArrowLeft, Phone } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion';
 import { BreadcrumbJsonLd, FaqJsonLd } from '@/components/json-ld';
+import { pageMetadata } from '@/lib/seo';
 import { services, getService } from '@/lib/services';
 import { getIcon } from '@/lib/icon-map';
 import { siteConfig } from '@/lib/site-config';
@@ -19,18 +20,30 @@ export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
+const seoTitles: Record<string, string> = {
+  'accounting': 'Accounting Services in Nairobi, Kenya | Riverhorse Hippo',
+  'bookkeeping': 'Bookkeeping Services in Nairobi, Kenya | Riverhorse Hippo',
+  'payroll': 'Payroll Services in Nairobi, Kenya | Riverhorse Hippo',
+  'tax': 'Tax Advisory & KRA Compliance in Nairobi | Riverhorse Hippo',
+  'audit': 'External Audit Services in Nairobi, Kenya | Riverhorse Hippo',
+  'internal-audit': 'Internal Audit Services in Nairobi, Kenya | Riverhorse Hippo',
+  'forensic-audit': 'Forensic Audit in Nairobi, Kenya | Riverhorse Hippo',
+  'business-consulting': 'Business Consulting in Nairobi, Kenya | Riverhorse Hippo',
+  'governance': 'Governance Advisory in Nairobi, Kenya | Riverhorse Hippo',
+  'hr-consulting': 'HR Consulting in Nairobi, Kenya | Riverhorse Hippo',
+  'virtual-cfo': 'Virtual CFO Services in Nairobi, Kenya | Riverhorse Hippo',
+  'digital-transformation': 'Digital Transformation in Nairobi | Riverhorse Hippo',
+  'business-registration': 'Business Registration in Nairobi, Kenya | Riverhorse Hippo',
+  'real-estate-advisory': 'Real Estate Advisory in Nairobi | Riverhorse Hippo',
+  'immigration-services': 'Immigration Services in Nairobi | Riverhorse Hippo',
+};
+
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const service = getService(params.slug);
   if (!service) return { title: 'Service Not Found' };
-  return {
-    title: `${service.title} — Professional Services`,
-    description: service.short,
-    alternates: { canonical: `/services/${service.slug}` },
-    openGraph: {
-      title: `${service.title} | Riverhorse Hippo Company Limited`,
-      description: service.short,
-    },
-  };
+  const title = seoTitles[service.slug] ?? `${service.title} in Nairobi, Kenya | Riverhorse Hippo`;
+  const description = `${service.short} Based in Nairobi, Kenya. Fixed-fee pricing. Book a free consultation with Riverhorse Hippo today.`;
+  return pageMetadata({ title, description, path: `/services/${service.slug}` });
 }
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {

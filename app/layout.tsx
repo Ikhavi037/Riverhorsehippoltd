@@ -18,28 +18,13 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 });
 
-const siteUrl = 'https://riverhorsehippo.com';
+const siteUrl = 'https://riverhorsehippoltd.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: 'Riverhorse Hippo Company Limited | Accounting. Tax. Audit. Advisory.',
-    template: '%s | Riverhorse Hippo Company Limited',
-  },
+  title: 'Accounting, Tax & Audit Firm in Nairobi | Riverhorse Hippo',
   description:
-    'Riverhorse Hippo Company Limited is a professional business advisory and financial services firm helping startups, SMEs, NGOs, corporates, investors, and public institutions achieve sustainable growth through accounting, taxation, audit, HR consulting, governance, digital transformation, and strategic advisory.',
-  keywords: [
-    'accounting firm',
-    'tax advisory',
-    'audit services',
-    'business consulting',
-    'virtual CFO',
-    'HR consulting',
-    'governance advisory',
-    'digital transformation',
-    'forensic audit',
-    'Riverhorse Hippo',
-  ],
+    'Nairobi accounting, tax, audit and advisory firm for startups, SMEs, NGOs and corporates. Fixed-fee pricing and KRA-compliant filings. Book a free consultation.',
   authors: [{ name: 'Riverhorse Hippo Company Limited' }],
   creator: 'Riverhorse Hippo Company Limited',
   publisher: 'Riverhorse Hippo Company Limited',
@@ -48,24 +33,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
-    siteName: 'Riverhorse Hippo Company Limited',
-    title: 'Riverhorse Hippo Company Limited | Accounting. Tax. Audit. Advisory. Done Right.',
+    siteName: 'Riverhorse Hippo',
+    title: 'Accounting, Tax & Audit Firm in Nairobi | Riverhorse Hippo',
     description:
-      'Professional business advisory and financial services firm helping startups, SMEs, NGOs, corporates, investors, and public institutions achieve sustainable growth.',
+      'Nairobi accounting, tax, audit and advisory firm for startups, SMEs, NGOs and corporates. Fixed-fee pricing and KRA-compliant filings. Book a free consultation.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Riverhorse Hippo Company Limited',
+        alt: 'Riverhorse Hippo — Accounting, Tax & Audit Firm in Nairobi',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Riverhorse Hippo Company Limited | Accounting. Tax. Audit. Advisory.',
+    title: 'Accounting, Tax & Audit Firm in Nairobi | Riverhorse Hippo',
     description:
-      'Professional business advisory and financial services for sustainable growth.',
+      'Nairobi accounting, tax, audit and advisory firm. Fixed-fee pricing and KRA-compliant filings. Book a free consultation.',
     images: ['/og-image.png'],
   },
   robots: {

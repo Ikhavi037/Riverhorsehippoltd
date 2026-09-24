@@ -1,4 +1,3 @@
-import { OrganizationJsonLd } from '@/components/json-ld';
 import { HeroSection } from '@/components/home/hero-section';
 import { StatsSection } from '@/components/home/stats-section';
 import { ServicesSection } from '@/components/home/services-section';
@@ -10,11 +9,11 @@ import { PartnersSection } from '@/components/home/partners-section';
 import { BlogPreviewSection } from '@/components/home/blog-preview-section';
 import { FaqSection } from '@/components/home/faq-section';
 import { ContactSection } from '@/components/home/contact-section';
+import { CredentialsSection } from '@/components/credentials-section';
 
 export default function HomePage() {
   return (
     <>
-      <OrganizationJsonLd />
       <HeroSection />
       <StatsSection />
       <ServicesSection />
@@ -23,6 +22,7 @@ export default function HomePage() {
       <ProcessSection />
       <TestimonialsSection />
       <PartnersSection />
+      <CredentialsSection />
       <BlogPreviewSection />
       <FaqSection />
       <ContactSection />

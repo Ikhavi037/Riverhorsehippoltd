@@ -5,6 +5,8 @@ export type Service = {
   icon: string; // lucide icon name
   category: 'Accounting' | 'Tax' | 'Audit' | 'Advisory' | 'Corporate';
   description: string;
+  whoFor?: string;
+  pricing?: string;
   features: string[];
   deliverables: string[];
   process: { step: string; detail: string }[];
@@ -19,12 +21,15 @@ export const services: Service[] = [
     icon: 'Calculator',
     category: 'Accounting',
     description:
-      'Our accounting service provides accurate, timely financial records that form the backbone of every decision you make. From ledger maintenance to financial statement preparation, we ensure your books are audit-ready at all times and compliant with IFRS, IPSAS, and local GAAP.',
+      'Our accounting service provides accurate, timely financial records that form the backbone of every decision you make. From ledger maintenance to financial statement preparation, we ensure your books are audit-ready at all times and compliant with IFRS, IFRS for SMEs, and local regulatory requirements in Kenya. We work with SMEs, growing companies, and organizations that need reliable financial records for decision-making, lender reporting, or regulatory compliance. Whether you have an in-house bookkeeper who needs support at month-end or no finance team at all, we scale our involvement to fit your needs.',
+    whoFor: 'SMEs, growing companies, NGOs, and organizations in Kenya that need reliable, compliant financial records but may not have a full in-house finance team.',
+    pricing: 'Engagements are priced as a fixed monthly retainer based on transaction volume and reporting complexity, or as a one-time fixed fee for specific projects such as system setup or catch-up accounting.',
     features: [
-      'IFRS & IPSAS compliant reporting',
+      'IFRS & IFRS for SMEs compliant reporting',
       'General ledger maintenance',
       'Trial balance & adjustment journals',
-      'Monthly, quarterly & annual financial statements',
+      'Monthly management accounts',
+      'Month-end close procedures',
       'Fixed asset registers & depreciation schedules',
       'Inter-company reconciliations',
       'Consolidated group accounts',
@@ -42,8 +47,11 @@ export const services: Service[] = [
       { step: 'Reporting', detail: 'Deliver statements with variance analysis and actionable commentary.' },
     ],
     faqs: [
-      { q: 'Do you work with our existing accounting software?', a: 'Yes. We support QuickBooks, Xero, Sage, Tally, Pastel, and custom ERPs. We can also recommend the best fit if you are starting fresh.' },
+      { q: 'Do you work with our existing accounting software?', a: 'Yes. We support QuickBooks, Xero, Sage, Tally, Pastel, and custom ERPs common in Kenya. We can also recommend the best fit if you are starting fresh.' },
       { q: 'Can you handle multi-currency and multi-entity accounting?', a: 'Absolutely. We manage consolidated group accounts with inter-company eliminations and foreign currency translation.' },
+      { q: 'What is IFRS for SMEs and does it apply to us?', a: 'IFRS for SMEs is a simplified financial reporting standard designed for small and medium-sized entities. It applies to companies that do not have public accountability and publish general-purpose financial statements. We can assess whether your entity qualifies and ensure your reporting follows the appropriate standard.' },
+      { q: 'What does a month-end close involve?', a: 'A month-end close includes recording all transactions for the period, reconciling bank and control accounts, posting accruals and prepayments, calculating depreciation, and producing management accounts with variance analysis. We follow a structured close checklist to ensure consistency and completeness.' },
+      { q: 'Can you produce management accounts mid-month?', a: 'Yes. We can produce interim management accounts on a weekly, fortnightly, or mid-month basis depending on your reporting needs. Many growing businesses benefit from more frequent financial visibility.' },
     ],
   },
   {
@@ -87,15 +95,18 @@ export const services: Service[] = [
     icon: 'Users',
     category: 'Corporate',
     description:
-      'We manage the entire payroll cycle — from gross-to-net calculations to statutory deductions, payslip distribution, and payroll tax filings — so your team is paid accurately and on time, every time.',
+      'We manage the entire payroll cycle for Kenyan employers — from gross-to-net calculations to statutory deductions including PAYE, NSSF, SHIF, and the Affordable Housing Levy, payslip distribution, and iTax filings — so your team is paid accurately and on time, every time. We serve businesses with a handful of employees through to organizations with hundreds of staff across multiple departments or locations. Our payroll service is suitable for companies that want to eliminate the administrative burden of payroll processing while ensuring full compliance with Kenyan employment tax and social security obligations.',
+    whoFor: 'Kenyan employers of all sizes — from small businesses with a few employees to larger organizations with complex payroll structures — who want accurate, compliant payroll without the administrative burden.',
+    pricing: 'Payroll is priced as a fixed monthly fee per employee, scaling with headcount. The rate covers all calculations, payslip distribution, and statutory filings for the month.',
     features: [
       'Gross-to-net payroll calculations',
-      'PAYE, NSSF, and LST deductions',
+      'PAYE, NSSF, SHIF & Affordable Housing Levy deductions',
       'Payslip generation & distribution',
-      'Payroll tax filings & compliance',
+      'iTax payroll tax filings & compliance',
       'Leave & attendance tracking',
       'Bonus, commission & overtime processing',
       'Severance & end-of-service calculations',
+      'P9A year-end tax returns',
     ],
     deliverables: [
       'Monthly payroll register',
@@ -104,14 +115,17 @@ export const services: Service[] = [
       'Payroll cost analysis reports',
     ],
     process: [
-      { step: 'Setup', detail: 'Employee master data, salary structures, benefits, and statutory codes configured.' },
-      { step: 'Run', detail: 'Monthly gross-to-net calculation with deductions and employer contributions.' },
+      { step: 'Setup', detail: 'Employee master data, salary structures, benefits, and statutory codes configured for PAYE, NSSF, SHIF, and the Affordable Housing Levy.' },
+      { step: 'Run', detail: 'Monthly gross-to-net calculation with all statutory deductions and employer contributions.' },
       { step: 'Distribute', detail: 'Payslips delivered via secure portal; bank transfer files prepared.' },
-      { step: 'Compliance', detail: 'Statutory returns filed with URA, NSSF, and local authorities.' },
+      { step: 'Compliance', detail: 'Statutory returns filed via KRA iTax, including NSSF and SHIF remittances.' },
     ],
     faqs: [
-      { q: 'Can you handle payroll for staff in multiple countries?', a: 'Yes. We support multi-jurisdiction payroll with country-specific tax tables and compliance requirements.' },
-      { q: 'Do you process contractor payments too?', a: 'We manage both employee payroll and contractor/consultant fee disbursements with appropriate tax treatment.' },
+      { q: 'What statutory deductions do you handle in Kenya?', a: 'We process all Kenyan statutory deductions including PAYE (pay-as-you-earn income tax), NSSF (National Social Security Fund), SHIF (Social Health Insurance Fund), and the Affordable Housing Levy. We also handle employer contributions and file the corresponding returns via KRA iTax.' },
+      { q: 'Can you handle payroll for staff in multiple countries?', a: 'Yes. We support multi-jurisdiction payroll with country-specific tax tables and compliance requirements, including staff based across East Africa.' },
+      { q: 'Do you process contractor payments too?', a: 'We manage both employee payroll and contractor or consultant fee disbursements with appropriate withholding tax treatment where applicable.' },
+      { q: 'How do you handle changes to statutory rates?', a: 'We monitor changes to PAYE bands, NSSF contribution rates, SHIF contributions, and the Affordable Housing Levy through the Kenya Gazette and Finance Act updates, and adjust our payroll calculations accordingly.' },
+      { q: 'Can you produce a P9A at year end?', a: 'Yes. We prepare and file the P9A annual PAYE return for each client and issue P9 tax certificates to employees for their personal tax filings.' },
     ],
   },
   {
@@ -121,14 +135,18 @@ export const services: Service[] = [
     icon: 'Receipt',
     category: 'Tax',
     description:
-      'From corporate income tax to VAT, withholding tax, and transfer pricing, we ensure full compliance while identifying legitimate opportunities to minimize your tax burden. Our tax team stays ahead of regulatory changes so you never miss a deadline or overpay.',
+      'From corporate income tax to VAT, PAYE, withholding tax, and transfer pricing, we ensure full compliance with KRA obligations while identifying legitimate opportunities to minimize your tax burden. Our tax team stays ahead of Finance Act changes and regulatory updates so you never miss a deadline or overpay. We serve businesses of all sizes — from sole proprietors filing their first returns to multinational groups managing complex tax positions across jurisdictions. Our approach combines proactive planning with meticulous compliance, ensuring you take advantage of every legitimate relief while staying fully on the right side of KRA.',
+    whoFor: 'Sole proprietors, partnerships, limited companies, NGOs, and multinational entities operating in Kenya that need help with tax compliance, planning, or dispute resolution with KRA.',
+    pricing: 'Compliance work is priced as a fixed monthly retainer covering all routine filings. Advisory projects, tax health checks, and dispute representation are scoped and quoted as fixed-fee engagements based on complexity.',
     features: [
-      'Corporate income tax planning & filing',
-      'VAT registration, filing & refund support',
-      'Withholding tax management',
+      'Corporate income tax planning & iTax filing',
+      'VAT registration, monthly filing & refund support',
+      'Withholding tax management (WHT)',
+      'PAYE registration and monthly filing',
       'Transfer pricing documentation',
+      'Finance Act impact analysis',
       'Tax health checks & due diligence',
-      'Tax dispute resolution & representation',
+      'Tax dispute resolution & KRA representation',
       'International tax advisory',
       'Tax incentive & exemption advisory',
     ],
@@ -139,14 +157,17 @@ export const services: Service[] = [
       'Tax savings opportunity report',
     ],
     process: [
-      { step: 'Assessment', detail: 'Review of your tax position, obligations, and deadlines across jurisdictions.' },
-      { step: 'Planning', detail: 'Identify deductions, incentives, and structuring opportunities to optimize tax.' },
-      { step: 'Compliance', detail: 'Prepare and file all returns accurately and before deadlines.' },
-      { step: 'Defense', detail: 'Represent you in audits, queries, and disputes with tax authorities.' },
+      { step: 'Assessment', detail: 'Review of your tax position, KRA obligations, and filing deadlines across all tax heads.' },
+      { step: 'Planning', detail: 'Identify deductions, incentives, and structuring opportunities to optimize tax within the law.' },
+      { step: 'Compliance', detail: 'Prepare and file all returns via KRA iTax accurately and before deadlines.' },
+      { step: 'Defense', detail: 'Represent you in KRA audits, queries, and disputes, including objections and appeals.' },
     ],
     faqs: [
-      { q: 'Can you help with past-due tax filings?', a: 'Yes. We specialize in tax regularization — bringing overdue filings current, negotiating penalties, and restoring compliance.' },
-      { q: 'Do you handle transfer pricing for multinationals?', a: 'We prepare full transfer pricing documentation, benchmarking studies, and local file/master file packages per OECD guidelines.' },
+      { q: 'What tax types do you file through KRA iTax?', a: 'We file all major tax returns via iTax including corporate income tax, VAT, PAYE, withholding tax, and stamp duty. We also handle tax compliance certificate applications and KRA PIN-related services.' },
+      { q: 'Can you help with past-due tax filings?', a: 'Yes. We specialize in tax regularization — bringing overdue iTax filings current, negotiating penalty waivers where possible, and restoring your compliance status with KRA.' },
+      { q: 'Do you handle transfer pricing for multinationals?', a: 'We prepare full transfer pricing documentation, benchmarking studies, and local file and master file packages per OECD guidelines and KRA transfer pricing rules.' },
+      { q: 'How do you track Finance Act changes?', a: 'We monitor each annual Finance Act for changes to tax rates, new levies, exemptions, and compliance requirements. We proactively advise clients on how changes affect their tax position and what adjustments are needed.' },
+      { q: 'Can you assist with VAT refund applications?', a: 'Yes. We prepare and submit VAT refund applications through iTax, follow up with KRA, and support any queries or verification requests during the refund process.' },
     ],
   },
   {
@@ -156,15 +177,18 @@ export const services: Service[] = [
     icon: 'ShieldCheck',
     category: 'Audit',
     description:
-      'Our external audit provides an independent, evidence-based opinion on your financial statements. We go beyond compliance to identify control weaknesses, operational risks, and improvement opportunities — delivering assurance that investors, lenders, and regulators trust.',
+      'Our external audit provides an independent, evidence-based opinion on your financial statements, conducted in accordance with International Standards on Auditing (ISA) as adopted by ICPAK. We go beyond compliance to identify control weaknesses, operational risks, and improvement opportunities — delivering assurance that investors, lenders, regulators, and donors trust. We audit companies required to file audited accounts under the Companies Act, 2015, NGOs responding to donor or statutory audit requirements, and entities seeking voluntary audit assurance to strengthen stakeholder confidence. Our risk-based approach focuses on the areas that matter most to your business, keeping the audit efficient and value-adding rather than purely procedural.',
+    whoFor: 'Companies requiring statutory audits under the Companies Act, 2015, NGOs with donor or regulatory audit obligations, and organizations seeking independent assurance for lenders, investors, or boards.',
+    pricing: 'Audit fees are quoted as a fixed fee based on the size and complexity of the entity, the condition of records, and the reporting deadline. The fee is agreed upfront before fieldwork begins, with no surprises.',
     features: [
-      'Statutory financial statement audits',
+      'Statutory audits under the Companies Act, 2015',
+      'Audits conducted per ISA as adopted by ICPAK',
+      'Financial statements prepared under IFRS or IFRS for SMEs',
       'Donor & grant compliance audits',
       'Special purpose audit reports',
       'Agreed-upon procedures engagements',
       'Audit of donor-funded projects',
       'Group audits & component auditor coordination',
-      'Internal control evaluation',
     ],
     deliverables: [
       'Independent auditor’s report',
@@ -179,8 +203,11 @@ export const services: Service[] = [
       { step: 'Issuance', detail: 'Final signed auditor’s report and delivery to stakeholders.' },
     ],
     faqs: [
-      { q: 'Are you independent for audit purposes?', a: 'Yes. We maintain strict independence per International Standards on Auditing. We do not audit entities where we provide bookkeeping services in the same period.' },
-      { q: 'How long does an audit take?', a: 'Typically 4–8 weeks depending on entity size and complexity. We provide a detailed timeline during planning.' },
+      { q: 'Are you independent for audit purposes?', a: 'Yes. We maintain strict independence in accordance with International Standards on Auditing and the ICPAK Code of Ethics. We do not audit entities where we provide bookkeeping or accounting services in the same reporting period.' },
+      { q: 'How long does an audit take?', a: 'Typically 4 to 8 weeks depending on entity size, complexity, and the condition of records. We provide a detailed timeline during the planning phase.' },
+      { q: 'What standards do you audit under?', a: 'We conduct audits in accordance with International Standards on Auditing (ISA) as adopted by ICPAK in Kenya. Financial statements are prepared under IFRS, IFRS for SMEs, or IPSAS depending on the entity type.' },
+      { q: 'Are statutory audits required for all companies in Kenya?', a: 'The Companies Act, 2015 requires certain companies to have their financial statements audited annually. The requirement depends on factors such as company size, whether it is public, and whether it has shareholders above a threshold. We can advise on whether your company requires a statutory audit.' },
+      { q: 'Can you audit donor-funded projects?', a: 'Yes. We have extensive experience with donor compliance audits, including audits for projects funded by international development partners, foundations, and bilateral donors. We tailor our audit approach to each donor\'s specific reporting requirements.' },
     ],
   },
   {
@@ -432,13 +459,16 @@ export const services: Service[] = [
     icon: 'FileCheck',
     category: 'Corporate',
     description:
-      'Starting a new venture? We handle the entire registration process — from company incorporation and tax registration to trade licensing and sector permits — so you can focus on building your business.',
+      'Starting a new venture in Kenya? We handle the entire registration process — from company incorporation through the Business Registration Service (BRS) on eCitizen, to KRA PIN registration, trade licensing, and county single business permits — so you can focus on building your business. We serve first-time entrepreneurs, foreign investors establishing a Kenyan presence, NGOs setting up local operations, and existing businesses that need to regularize their registration or add new entities. Beyond the initial registration, we help you understand your ongoing compliance obligations and set up a calendar of renewals and filings so you stay in good standing from day one.',
+    whoFor: 'First-time entrepreneurs, foreign investors entering Kenya, NGOs establishing local operations, and existing businesses needing to regularize or expand their registration.',
+    pricing: 'Registration services are priced as a fixed fee per entity type, covering all professional work and filings. Government fees and levies are billed at cost with receipts provided.',
     features: [
-      'Company incorporation (limited, partnership, NGO)',
-      'Tax registration (TIN, VAT, PAYE)',
-      'Trade licensing & sector permits',
+      'Company incorporation via BRS on eCitizen',
+      'KRA PIN registration for the entity and directors',
+      'VAT and PAYE registration',
+      'County single business permits & trade licenses',
       'NGO & society registration',
-      'Foreign investor registration',
+      'Foreign investor registration & permits',
       'Shareholder agreements & constitutions',
       'Annual returns & statutory filings',
       'Company secretarial services',
@@ -450,14 +480,17 @@ export const services: Service[] = [
       'Company statutory registers',
     ],
     process: [
-      { step: 'Advise', detail: 'Determine the optimal legal structure for your business objectives.' },
-      { step: 'Prepare', detail: 'Draft incorporation documents and compile regulatory requirements.' },
-      { step: 'File', detail: 'Submit applications and track through to issuance.' },
-      { step: 'Comply', detail: 'Set up ongoing compliance calendar for returns and renewals.' },
+      { step: 'Advise', detail: 'Determine the optimal legal structure for your business objectives in Kenya.' },
+      { step: 'Prepare', detail: 'Draft incorporation documents, memoranda, and articles for BRS submission via eCitizen.' },
+      { step: 'File', detail: 'Submit incorporation applications, KRA PIN registrations, and permit applications, tracking through to issuance.' },
+      { step: 'Comply', detail: 'Set up ongoing compliance calendar for annual returns, permit renewals, and KRA obligations.' },
     ],
     faqs: [
-      { q: 'How long does incorporation take?', a: 'Typically 2–4 weeks depending on entity type and jurisdiction. Expedited options are available.' },
-      { q: 'Can you register foreign companies and NGOs?', a: 'Yes. We handle foreign investor registration, NGO permits, and cross-border entity setup.' },
+      { q: 'How long does company incorporation take in Kenya?', a: 'Incorporation through the Business Registration Service on eCitizen typically takes a few weeks, depending on entity type and the responsiveness of the registry. We track the process and follow up on your behalf.' },
+      { q: 'Can you register foreign companies and NGOs?', a: 'Yes. We handle foreign investor registration, NGO permits, and cross-border entity setup in Kenya.' },
+      { q: 'Do I need a KRA PIN for my business?', a: 'Yes. A KRA PIN is required for every registered business entity in Kenya. We obtain PIN certificates for the company and its directors as part of the registration process, and register for VAT and PAYE where applicable.' },
+      { q: 'What permits do I need beyond company registration?', a: 'Beyond incorporation and KRA registration, most businesses need a county single business permit and may require sector-specific licenses depending on the industry. We identify all applicable permits and handle the applications.' },
+      { q: 'Can you help with ongoing annual compliance?', a: 'Yes. We maintain a compliance calendar for each client, tracking annual returns, permit renewals, and KRA filing deadlines so nothing falls through the cracks.' },
     ],
   },
   {

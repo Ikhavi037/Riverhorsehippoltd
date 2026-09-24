@@ -4,6 +4,7 @@ import { PageHero } from '@/components/section-heading';
 import { FadeIn } from '@/components/motion';
 import { pageMetadata } from '@/lib/seo';
 import { siteConfig } from '@/lib/site-config';
+import { BreadcrumbJsonLd } from '@/components/json-ld';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Privacy Policy | Riverhorse Hippo',
@@ -15,6 +16,7 @@ export const metadata: Metadata = pageMetadata({
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: 'Home', url: '/' }, { name: 'Privacy Policy', url: '/privacy-policy' }]} />
       <PageHero eyebrow="Legal" title="Privacy Policy" description="Your privacy and data security are paramount to us." />
       <section className="py-20">
         <Container size="narrow">

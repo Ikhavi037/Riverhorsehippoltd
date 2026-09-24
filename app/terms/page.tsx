@@ -4,6 +4,7 @@ import { PageHero } from '@/components/section-heading';
 import { FadeIn } from '@/components/motion';
 import { pageMetadata } from '@/lib/seo';
 import { siteConfig } from '@/lib/site-config';
+import { BreadcrumbJsonLd } from '@/components/json-ld';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Terms of Service | Riverhorse Hippo',
@@ -15,6 +16,7 @@ export const metadata: Metadata = pageMetadata({
 export default function TermsPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: 'Home', url: '/' }, { name: 'Terms of Service', url: '/terms' }]} />
       <PageHero eyebrow="Legal" title="Terms of Service" description="The terms governing your use of our services and website." />
       <section className="py-20">
         <Container size="narrow">

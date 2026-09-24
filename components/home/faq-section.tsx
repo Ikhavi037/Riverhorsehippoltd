@@ -28,18 +28,21 @@ export function FaqSection() {
         <FadeIn delay={0.2} className="mt-10">
           <Accordion type="single" collapsible className="space-y-3">
             {homepageFaqs.map((faq, i) => (
-              <AccordionItem
-                key={i}
-                value={`item-${i}`}
-                className="overflow-hidden rounded-xl border border-border bg-card px-5"
-              >
-                <AccordionTrigger className="text-left text-base font-semibold text-navy-900 hover:no-underline dark:text-white">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+              <div key={i}>
+                <AccordionItem
+                  value={`item-${i}`}
+                  className="overflow-hidden rounded-xl border border-border bg-card px-5"
+                >
+                  <AccordionTrigger className="text-left text-base font-semibold text-navy-900 hover:no-underline dark:text-white">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+                <h3 className="sr-only">{faq.question}</h3>
+                <p className="sr-only">{faq.answer}</p>
+              </div>
             ))}
           </Accordion>
         </FadeIn>

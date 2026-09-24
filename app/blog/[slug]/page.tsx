@@ -4,7 +4,14 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight, Calendar, Clock, User } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { FadeIn } from '@/components/motion';
-import { BreadcrumbJsonLd, JsonLd } from '@/components/json-ld';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { BreadcrumbJsonLd, BlogPostingJsonLd, FaqJsonLd } from '@/components/json-ld';
+import { getTeamMember } from '@/src/data/team';
 import { pageMetadata } from '@/lib/seo';
 import { blogPosts, getBlogPost } from '@/lib/blog';
 import { siteConfig } from '@/lib/site-config';
@@ -41,18 +48,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         { name: 'Blog', url: '/blog' },
         { name: post.title, url: `/blog/${post.slug}` },
       ]} />
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          headline: post.title,
-          description: post.excerpt,
-          image: '/og-image.png',
-          datePublished: post.date,
-          author: { '@type': 'Person', name: post.author },
-          publisher: { '@type': 'Organization', name: siteConfig.name },
-        }}
+      <BlogPostingJsonLd
+        headline={post.title}
+        description={post.excerpt}
+        image={`${siteConfig.url}/og-image.png`}
+        datePublished={post.date}
+        dateModified={post.lastUpdated}
+        author={post.author}
       />
+      {post.faqs && post.faqs.length > 0 && <FaqJsonLd faqs={post.faqs} />}
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy-gradient pt-16 pb-20 text-white sm:pt-20 sm:pb-24">
@@ -67,6 +71,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <span className="flex items-center gap-2"><User className="h-4 w-4 text-gold-400" />{post.author}, {post.authorRole}</span>
             <span className="flex items-center gap-2"><Calendar className="h-4 w-4 text-gold-400" />{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             <span className="flex items-center gap-2"><Clock className="h-4 w-4 text-gold-400" />{post.readTime}</span>
+            {post.lastUpdated !== post.date && (
+              <span className="text-white/40">Last updated {new Date(post.lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+            )}
           </div>
         </Container>
       </section>
@@ -92,6 +99,25 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </article>
           </FadeIn>
 
+          {/* FAQ */}
+          {post.faqs && post.faqs.length > 0 && (
+            <FadeIn delay={0.15} className="mt-12">
+              <h2 className="heading-font text-2xl font-bold text-navy-900 dark:text-white">Frequently Asked Questions</h2>
+              <Accordion type="single" collapsible className="mt-6 space-y-3">
+                {post.faqs.map((faq, i) => (
+                  <div key={i}>
+                    <AccordionItem value={`faq-${i}`} className="overflow-hidden rounded-xl border border-border bg-card px-5">
+                      <AccordionTrigger className="text-left text-base font-semibold text-navy-900 hover:no-underline dark:text-white">{faq.q}</AccordionTrigger>
+                      <AccordionContent className="text-sm leading-relaxed text-muted-foreground">{faq.a}</AccordionContent>
+                    </AccordionItem>
+                    <h3 className="sr-only">{faq.q}</h3>
+                    <p className="sr-only">{faq.a}</p>
+                  </div>
+                ))}
+              </Accordion>
+            </FadeIn>
+          )}
+
           {/* Author box */}
           <FadeIn delay={0.1}>
             <div className="mt-12 flex items-center gap-4 rounded-2xl border border-border bg-muted/50 p-6">
@@ -99,7 +125,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 {post.author.split(' ').map((n) => n[0]).slice(0, 2).join('')}
               </div>
               <div>
-                <div className="font-semibold text-navy-900 dark:text-white">{post.author}</div>
+                {(() => {
+                  const member = getTeamMember(post.author.toLowerCase().replace(/\s+/g, '-'));
+                  return member ? (
+                    <Link href={`/team/${member.slug}`} className="font-semibold text-navy-900 hover:text-gold-600 dark:text-white dark:hover:text-gold-400">{post.author}</Link>
+                  ) : (
+                    <div className="font-semibold text-navy-900 dark:text-white">{post.author}</div>
+                  );
+                })()}
                 <div className="text-sm text-muted-foreground">{post.authorRole}, Riverhorse Hippo Company Limited</div>
               </div>
             </div>

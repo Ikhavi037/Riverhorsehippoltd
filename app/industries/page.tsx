@@ -34,13 +34,16 @@ export default function IndustriesPage() {
               const reversed = idx % 2 === 1;
               return (
                 <FadeIn key={industry.slug}>
-                  <div id={industry.slug} className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2">
+                  <div className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2">
                     <div className={reversed ? 'lg:order-2' : ''}>
                       <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-navy-gradient text-gold-400 shadow-lg">
                         <Icon className="h-8 w-8" />
                       </div>
                       <h2 className="heading-font mt-5 text-2xl font-bold text-navy-900 dark:text-white sm:text-3xl">{industry.title}</h2>
                       <p className="mt-4 text-base leading-relaxed text-muted-foreground">{industry.description}</p>
+                      <Link href={`/industries/${industry.slug}`} className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-gold-600 dark:text-gold-400">
+                        Learn more <ArrowRight className="h-4 w-4" />
+                      </Link>
                       <div className="mt-6 grid gap-6 sm:grid-cols-2">
                         <div>
                           <h3 className="heading-font text-sm font-semibold uppercase tracking-wider text-gold-600 dark:text-gold-400">Key Challenges</h3>
@@ -71,7 +74,10 @@ export default function IndustriesPage() {
                         <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-gold-500/5" />
                         <h3 className="heading-font text-lg font-semibold text-navy-900 dark:text-white">How we help {industry.title.toLowerCase()} organizations</h3>
                         <p className="mt-3 text-sm text-muted-foreground">{industry.short}</p>
-                        <Link href="/book-consultation" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-800">
+                        <Link href={`/industries/${industry.slug}`} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold-600 dark:text-gold-400">
+                          Read more <ArrowRight className="h-4 w-4" />
+                        </Link>
+                        <Link href="/book-consultation" className="mt-3 inline-flex items-center gap-2 rounded-lg bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-800">
                           Discuss Your Needs <ArrowRight className="h-4 w-4" />
                         </Link>
                       </div>

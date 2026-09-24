@@ -6,13 +6,15 @@ import { Container } from '@/components/ui/container';
 import { PageHero, SectionHeading } from '@/components/section-heading';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
+import { CredentialsSection } from '@/components/credentials-section';
+import { TeamSection } from '@/components/team-section';
 import { stats } from '@/lib/content';
 import { AnimatedCounter } from '@/components/animated-counter';
 
 export const metadata: Metadata = pageMetadata({
   title: 'About Our Firm in Nairobi | Riverhorse Hippo',
   description:
-    'Riverhorse Hippo is a Nairobi accounting, tax, audit and advisory firm serving startups, SMEs and NGOs across East Africa. Meet our Big Four–trained partners. Get in touch today.',
+    'Riverhorse Hippo is a Nairobi accounting, tax, audit and advisory firm serving startups, SMEs and NGOs across East Africa. Get in touch today.',
   path: '/about',
 });
 
@@ -29,13 +31,6 @@ const principles = [
   'Proactive communication and transparency',
   'Evidence-based recommendations',
   'Long-term partnership mindset',
-];
-
-const team = [
-  { name: 'Sarah Kiggundu', role: 'Managing Partner & Head of Audit', bio: 'CPA, MBA — 18 years in audit and assurance with Big Four experience.', initials: 'SK' },
-  { name: 'Daniel Okware', role: 'Partner, Tax Services', bio: 'CPA, LLM (Tax) — Specialist in international tax and transfer pricing.', initials: 'DO' },
-  { name: 'Patricia Nakimera', role: 'Partner, Advisory & NGO Services', bio: 'CPA, MSc — Expert in NGO compliance, governance, and donor reporting.', initials: 'PN' },
-  { name: 'Michael Ssali', role: 'Director, Forensic Services', bio: 'CFE, CPA — Forensic accounting and fraud investigation specialist.', initials: 'MS' },
 ];
 
 export default function AboutPage() {
@@ -126,30 +121,11 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Leadership team */}
-      <section className="bg-muted/50 py-20 sm:py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="Leadership"
-            title="Meet the partners"
-            description="Our leadership team brings decades of combined experience from the world's leading professional services firms."
-          />
-          <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" delay={0.1}>
-            {team.map((member) => (
-              <StaggerItem key={member.name}>
-                <div className="group h-full rounded-2xl border border-border bg-card p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-navy-gradient text-2xl font-bold text-gold-400 transition-transform group-hover:scale-110">
-                    {member.initials}
-                  </div>
-                  <h3 className="heading-font mt-4 text-base font-semibold text-navy-900 dark:text-white">{member.name}</h3>
-                  <p className="mt-1 text-sm font-medium text-gold-600 dark:text-gold-400">{member.role}</p>
-                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{member.bio}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </Container>
-      </section>
+      {/* Credentials & Registration */}
+      <CredentialsSection />
+
+      {/* Team (renders only when src/data/team.ts is populated) */}
+      <TeamSection />
 
       {/* CTA */}
       <section className="py-20">

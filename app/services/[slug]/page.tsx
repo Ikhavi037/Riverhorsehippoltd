@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { Check, ArrowRight, ArrowLeft, Phone } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion';
-import { BreadcrumbJsonLd, FaqJsonLd } from '@/components/json-ld';
+import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { pageMetadata } from '@/lib/seo';
 import { services, getService } from '@/lib/services';
 import { getIcon } from '@/lib/icon-map';
@@ -60,6 +60,11 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         { name: 'Services', url: '/services' },
         { name: service.title, url: `/services/${service.slug}` },
       ]} />
+      <ServiceJsonLd
+        name={service.title}
+        description={service.whoFor ?? service.short}
+        url={`/services/${service.slug}`}
+      />
       {service.faqs.length > 0 && <FaqJsonLd faqs={service.faqs} />}
 
       {/* Hero */}
@@ -98,6 +103,20 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             <FadeIn className="lg:col-span-2">
               <h2 className="heading-font text-2xl font-bold text-navy-900 dark:text-white">Overview</h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{service.description}</p>
+
+              {service.whoFor && (
+                <div className="mt-8 rounded-xl border border-border bg-muted/40 p-6">
+                  <h3 className="heading-font text-base font-semibold text-navy-900 dark:text-white">Who This Is For</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.whoFor}</p>
+                </div>
+              )}
+
+              {service.pricing && (
+                <div className="mt-4 rounded-xl border border-gold-500/20 bg-gold-500/5 p-6">
+                  <h3 className="heading-font text-base font-semibold text-navy-900 dark:text-white">How Engagements Are Priced</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.pricing}</p>
+                </div>
+              )}
 
               <h2 className="heading-font mt-10 text-2xl font-bold text-navy-900 dark:text-white">What's Included</h2>
               <StaggerContainer className="mt-5 grid gap-3 sm:grid-cols-2" delay={0.05}>
@@ -162,10 +181,14 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             <FadeIn delay={0.2} className="mt-10">
               <Accordion type="single" collapsible className="space-y-3">
                 {service.faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`item-${i}`} className="overflow-hidden rounded-xl border border-border bg-card px-5">
-                    <AccordionTrigger className="text-left text-base font-semibold text-navy-900 hover:no-underline dark:text-white">{faq.q}</AccordionTrigger>
-                    <AccordionContent className="text-sm leading-relaxed text-muted-foreground">{faq.a}</AccordionContent>
-                  </AccordionItem>
+                  <div key={i}>
+                    <AccordionItem value={`item-${i}`} className="overflow-hidden rounded-xl border border-border bg-card px-5">
+                      <AccordionTrigger className="text-left text-base font-semibold text-navy-900 hover:no-underline dark:text-white">{faq.q}</AccordionTrigger>
+                      <AccordionContent className="text-sm leading-relaxed text-muted-foreground">{faq.a}</AccordionContent>
+                    </AccordionItem>
+                    <h3 className="sr-only">{faq.q}</h3>
+                    <p className="sr-only">{faq.a}</p>
+                  </div>
                 ))}
               </Accordion>
             </FadeIn>

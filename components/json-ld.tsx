@@ -9,26 +9,111 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
-export function OrganizationJsonLd() {
+const organization = {
+  '@type': 'AccountingService',
+  name: siteConfig.name,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/og-image.png`,
+  image: `${siteConfig.url}/og-image.png`,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Teleposta Towers, Kenyatta Avenue',
+    addressLocality: 'Nairobi',
+    addressRegion: 'Nairobi County',
+    addressCountry: 'KE',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -1.2864,
+    longitude: 36.8168,
+  },
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '08:00',
+    closes: '18:00',
+  }],
+  areaServed: { '@type': 'Country', name: 'Kenya' },
+  sameAs: Object.values(siteConfig.social),
+};
+
+export function AccountingServiceJsonLd() {
   return (
     <JsonLd
       data={{
         '@context': 'https://schema.org',
-        '@type': 'ProfessionalService',
-        name: siteConfig.name,
-        description: siteConfig.description,
-        url: siteConfig.url,
-        telephone: siteConfig.phone,
-        email: siteConfig.email,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: siteConfig.address.line1,
-          addressLocality: 'Nairobi',
-          addressCountry: 'KE',
+        ...organization,
+      }}
+    />
+  );
+}
+
+export function ServiceJsonLd({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return (
+    <JsonLd
+      data={{
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name,
+        description,
+        url: `${siteConfig.url}${url}`,
+        provider: {
+          '@type': 'AccountingService',
+          name: siteConfig.name,
+          url: siteConfig.url,
+          telephone: siteConfig.phone,
+          address: organization.address,
+          areaServed: organization.areaServed,
         },
-        priceRange: '$',
-        areaServed: 'East Africa',
-        sameAs: Object.values(siteConfig.social),
+        areaServed: { '@type': 'Country', name: 'Kenya' },
+      }}
+    />
+  );
+}
+
+export function BlogPostingJsonLd({
+  headline,
+  description,
+  image,
+  datePublished,
+  dateModified,
+  author,
+}: {
+  headline: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified?: string;
+  author: string;
+}) {
+  return (
+    <JsonLd
+      data={{
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline,
+        description,
+        image,
+        datePublished,
+        dateModified: dateModified ?? datePublished,
+        author: { '@type': 'Person', name: author },
+        publisher: {
+          '@type': 'Organization',
+          name: siteConfig.name,
+          logo: { '@type': 'ImageObject', url: `${siteConfig.url}/og-image.png` },
+        },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': siteConfig.url },
       }}
     />
   );

@@ -44,7 +44,7 @@ export function ContactSection() {
         <SectionHeading
           eyebrow="Contact Us"
           title="Let's start a conversation"
-          description="Reach out to discuss how we can help your organization achieve its financial goals."
+          description="Reach out to our Nairobi, Kenya office to discuss how we can help your organization achieve its financial goals."
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -59,8 +59,8 @@ export function ContactSection() {
               </div>
               <div className="relative flex-1 overflow-hidden rounded-2xl border border-border shadow-md" style={{ minHeight: '300px' }}>
                 <iframe
-                  title="Riverhorse Hippo office location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8615!2d36.8168!3d-1.2864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTcnMTEuMCJTIDM2wrA0OCc2MC40IkU!5e0!3m2!1sen!2ske!4v1700000000000"
+                  title="Riverhorse Hippo office location in Nairobi, Kenya"
+                  src="https://www.google.com/maps?q=Teleposta+Towers,+Kenyatta+Avenue,+Nairobi,+Kenya&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0, position: 'absolute', top: 0, left: 0 }}

@@ -126,8 +126,8 @@ export default function ContactForm() {
           <FadeIn delay={0.2} className="mt-10">
             <div className="overflow-hidden rounded-2xl border border-border shadow-md" style={{ height: '400px' }}>
               <iframe
-                title="Riverhorse Hippo office location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8615!2d36.8168!3d-1.2864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTcnMTEuMCJTIDM2wrA0OCc2MC40IkU!5e0!3m2!1sen!2ske!4v1700000000000"
+                title="Riverhorse Hippo office location in Nairobi, Kenya"
+                src="https://www.google.com/maps?q=Teleposta+Towers,+Kenyatta+Avenue,+Nairobi,+Kenya&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

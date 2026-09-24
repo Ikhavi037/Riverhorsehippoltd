@@ -6,6 +6,7 @@ import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { WhatsAppButton } from '@/components/whatsapp-button';
 import { Analytics } from '@/components/analytics';
+import { AccountingServiceJsonLd } from '@/components/json-ld';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -78,6 +79,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <AccountingServiceJsonLd />
+      </head>
       <body className="body-font bg-background text-foreground antialiased">
         <ThemeProvider
           attribute="class"

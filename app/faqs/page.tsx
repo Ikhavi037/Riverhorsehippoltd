@@ -45,14 +45,18 @@ export default function FaqsPage() {
                   </div>
                   <Accordion type="single" collapsible className="space-y-3">
                     {categoryFaqs.map((faq, i) => (
-                      <AccordionItem key={`${category}-${i}`} value={`item-${i}`} className="overflow-hidden rounded-xl border border-border bg-card px-5">
-                        <AccordionTrigger className="text-left text-base font-semibold text-navy-900 hover:no-underline dark:text-white">
-                          {faq.question}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                          {faq.answer}
-                        </AccordionContent>
-                      </AccordionItem>
+                      <div key={`${category}-${i}`}>
+                        <AccordionItem value={`item-${i}`} className="overflow-hidden rounded-xl border border-border bg-card px-5">
+                          <AccordionTrigger className="text-left text-base font-semibold text-navy-900 hover:no-underline dark:text-white">
+                            {faq.question}
+                          </AccordionTrigger>
+                          <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                            {faq.answer}
+                          </AccordionContent>
+                        </AccordionItem>
+                        <h3 className="sr-only">{faq.question}</h3>
+                        <p className="sr-only">{faq.answer}</p>
+                      </div>
                     ))}
                   </Accordion>
                 </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import BookConsultationForm from '@/components/book-consultation-form';
 import { pageMetadata } from '@/lib/seo';
+import { BreadcrumbJsonLd } from '@/components/json-ld';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Book a Free Consultation in Nairobi | Riverhorse Hippo',
@@ -10,5 +11,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function BookConsultationPage() {
-  return <BookConsultationForm />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Home', url: '/' }, { name: 'Book a Consultation', url: '/book-consultation' }]} />
+      <BookConsultationForm />
+    </>
+  );
 }

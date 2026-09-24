@@ -37,6 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const industryEntries: MetadataRoute.Sitemap = industries.map((i) => ({
+    url: `${base}/industries/${i.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((p) => ({
     url: `${base}/blog/${p.slug}`,
     lastModified: new Date(p.date),
@@ -58,5 +65,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticEntries, ...serviceEntries, ...blogEntries, ...caseStudyEntries, ...careerEntries];
+  return [...staticEntries, ...serviceEntries, ...industryEntries, ...blogEntries, ...caseStudyEntries, ...careerEntries];
 }

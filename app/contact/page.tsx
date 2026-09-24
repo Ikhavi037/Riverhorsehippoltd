@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import ContactForm from '@/components/contact-form';
 import { pageMetadata } from '@/lib/seo';
+import { BreadcrumbJsonLd } from '@/components/json-ld';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Contact Our Nairobi Accounting Firm | Riverhorse Hippo',
@@ -10,5 +11,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function ContactPage() {
-  return <ContactForm />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Home', url: '/' }, { name: 'Contact', url: '/contact' }]} />
+      <ContactForm />
+    </>
+  );
 }

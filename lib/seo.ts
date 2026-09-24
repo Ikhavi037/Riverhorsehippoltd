@@ -32,7 +32,10 @@ export function pageMetadata({
   const ogImage = image ?? DEFAULT_OG_IMAGE;
   const desc = truncate(description, 160);
 
-  const openGraph: Metadata['openGraph'] = {
+  const openGraph: NonNullable<Metadata['openGraph']> & {
+    publishedTime?: string;
+    authors?: string[];
+  } = {
     type,
     locale: 'en_US',
     url: canonical,

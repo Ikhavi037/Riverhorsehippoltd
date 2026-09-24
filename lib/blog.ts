@@ -6,32 +6,50 @@ export type BlogPost = {
   author: string;
   authorRole: string;
   date: string;
+  lastUpdated: string;
   readTime: string;
   image: string;
   featured?: boolean;
   content: string[];
+  faqs?: { q: string; a: string }[];
 };
+
+// Draft blog post titles for future writing (Kenya-focused):
+// 1. "KRA iTax Filing Deadlines: A Calendar for Kenyan Businesses"
+// 2. "Finance Act Changes: What Kenyan Companies Need to Know This Year"
+// 3. "SHIF, NSSF and the Affordable Housing Levy: A Payroll Compliance Guide"
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'ifrs-18-new-revenue-recognition-standard',
-    title: 'IFRS 18: What the New Revenue Recognition Standard Means for Your Business',
+    slug: 'ifrs-18-financial-statement-presentation',
+    title: 'IFRS 18 Explained: What Changes in Financial Statement Presentation',
     excerpt:
-      'The new revenue recognition standard changes how companies report income. Here is what you need to know and how to prepare.',
+      'IFRS 18 replaces IAS 1 with new income statement categories, defined subtotals, and rules on management-defined performance measures. Here is what changes and how to prepare.',
     category: 'Accounting',
     author: 'Sarah Kiggundu',
     authorRole: 'Audit Partner',
     date: '2025-06-15',
+    lastUpdated: '2026-09-21',
     readTime: '8 min read',
     image:
       'https://images.pexels.com/photos/6863251/pexels-photo-6863251.jpeg?auto=compress&cs=tinysrgb&w=1200',
     featured: true,
     content: [
-      'The International Accounting Standards Board (IASB) has issued IFRS 18, a new standard that replaces IAS 18 and IAS 11. The core principle is that revenue is recognized when goods or services are transferred to the customer, reflecting the amount the entity expects to be entitled to in exchange.',
-      'For most businesses, this means a shift from a risk-and-reward model to a control-based model for revenue recognition. The five-step model requires entities to identify the contract, identify performance obligations, determine the transaction price, allocate the price, and recognize revenue as performance obligations are satisfied.',
-      'The impact varies by industry. Construction companies using percentage-of-completion will see minimal change, while telecommunications, software, and real estate companies may see significant shifts in timing and amount of recognized revenue.',
-      'Preparation should begin now. We recommend a gap assessment to identify contracts and revenue streams affected, evaluate systems and processes for the additional disclosure requirements, and train finance teams on the new framework.',
-      'Our team at Riverhorse Hippo is ready to help you navigate this transition. From initial assessment to implementation and training, we provide end-to-end support to ensure a smooth and compliant adoption.',
+      'The International Accounting Standards Board (IASB) issued IFRS 18, "Presentation and Disclosure in Financial Statements," to replace IAS 1. The standard applies to annual reporting periods beginning on or after 1 January 2027, with earlier application permitted. Unlike IFRS 15 (revenue recognition) or IFRS 16 (leases), IFRS 18 does not change what income or expenses a company recognizes — it changes how those amounts are presented and disclosed in the financial statements.',
+      'The core objective is to improve comparability across companies. Under IAS 1, entities had significant flexibility in how they structured the income statement, which made it difficult for investors to compare performance across companies in the same industry. IFRS 18 introduces tighter requirements so that similar transactions are presented consistently.',
+      'Three required categories in the income statement. IFRS 18 requires all income and expenses to be classified into one of three categories on the face of the income statement: operating, investing, and financing. The operating category includes income and expenses from an entity\'s main business activities. The investing category includes returns on investments and other investing activities. The financing category includes costs related to the entity\'s financing structure. Previously, companies could choose between a by-function (cost of sales model) and by-nature presentation — IFRS 18 requires classification by function for the operating category.',
+      'New defined subtotals. IFRS 18 introduces two new required subtotals on the income statement. The first is "operating profit," which includes all operating income and expenses and excludes investing and financing items. The second is "operating profit before investing and financing income and expenses," which is equivalent to the current operating profit subtotal but defined more precisely. These defined subtotals mean that companies can no longer use their own labels for intermediate profit measures on the face of the income statement — the defined subtotals must be presented.',
+      'Management-defined performance measures (MPMs). One of the most significant changes is the requirement to disclose management-defined performance measures — commonly known as non-GAAP or alternative performance measures. If management uses a performance measure that is not defined by IFRS in its public communications (for example, EBITDA adjusted for one-time items), that measure must now be disclosed in the financial statements with a reconciliation to the nearest IFRS-defined subtotal, a explanation of why it is useful, and the tax and non-controlling interest effects.',
+      'Tighter rules on grouping information. IFRS 18 introduces new requirements for how information is grouped and presented. Entities must not combine items of a different nature into a single line item, and must not offset income and expenses unless explicitly permitted by another IFRS. The standard also requires that line items, headings and subtotals on the face of the income statement be clearly identified, with subtotals that are not defined by IFRS clearly distinguished from those that are.',
+      'How to prepare. Companies should begin by assessing the impact of the new income statement structure on their current chart of accounts and reporting systems. Map each existing line item to its new category (operating, investing, or financing). Review any MPMs used in investor presentations or management reports and prepare the required reconciliations. Update accounting manuals and financial statement templates. Train finance teams on the new presentation requirements. For groups, consider whether subsidiary reporting needs to be aligned to produce compliant consolidated statements.',
+      'For Kenyan companies, the transition is particularly relevant for listed entities on the Nairobi Securities Exchange, which will need to align their published financial statements with IFRS 18. Private companies should also prepare, as lenders and investors increasingly expect IFRS-compliant presentation. Our team at Riverhorse Hippo can assist with gap assessments, chart of accounts mapping, template redesign, and team training to ensure a smooth transition before the 2027 effective date.',
+    ],
+    faqs: [
+      { q: 'When does IFRS 18 become effective?', a: 'IFRS 18 applies to annual reporting periods beginning on or after 1 January 2027. Earlier application is permitted, so companies that wish to adopt it sooner can do so.' },
+      { q: 'Does IFRS 18 change how much profit a company reports?', a: 'No. IFRS 18 does not change the recognition or measurement of income and expenses. It changes how those amounts are categorized, presented, and disclosed in the financial statements.' },
+      { q: 'What is the difference between IFRS 18 and IFRS 15?', a: 'IFRS 15 is about revenue recognition — when and how much revenue to recognize. IFRS 18 is about presentation and disclosure — how income and expenses are categorized and displayed in the financial statements. They are separate standards addressing different aspects of financial reporting.' },
+      { q: 'What are management-defined performance measures (MPMs)?', a: 'MPMs are performance measures that management uses in public communications but that are not defined by IFRS — sometimes called non-GAAP measures. Under IFRS 18, if management uses such measures, they must be disclosed in the financial statements with a reconciliation to the nearest IFRS-defined subtotal.' },
+      { q: 'What should Kenyan companies do to prepare?', a: 'Begin by mapping your current income statement line items to the new operating, investing, and financing categories. Review any non-GAAP measures you use publicly and prepare the required reconciliations. Update financial statement templates and train your finance team on the new requirements. A gap assessment with a qualified advisor can help prioritize the work.' },
     ],
   },
   {
@@ -43,6 +61,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Daniel Okware',
     authorRole: 'Tax Director',
     date: '2025-05-28',
+    lastUpdated: '2025-05-28',
     readTime: '6 min read',
     image:
       'https://images.pexels.com/photos/6863251/pexels-photo-6863251.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -51,7 +70,7 @@ export const blogPosts: BlogPost[] = [
       'First, take advantage of capital allowances. Investments in plant and machinery, buildings, and intangible assets may qualify for accelerated depreciation or investment deductions that reduce your taxable income.',
       'Second, structure your entity correctly. The choice between a limited company, partnership, or sole proprietorship has significant tax implications. The optimal structure depends on your profit levels, growth plans, and ownership.',
       'Third, optimize your compensation mix. A combination of salary, dividends, and benefits can reduce the overall tax burden for business owners while remaining fully compliant.',
-      'Fourth, leverage available tax incentives. Many jurisdictions offer investment incentives, export promotion schemes, and sector-specific exemptions that businesses overlook.',
+      'Fourth, leverage available tax incentives. Kenya offers investment incentives, export promotion schemes, and sector-specific exemptions that businesses often overlook.',
       'Fifth, keep immaculate records. The best tax planning fails without proper documentation. Good bookkeeping ensures you can substantiate every deduction and credit you claim.',
     ],
   },
@@ -64,6 +83,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Patricia Nakimera',
     authorRole: 'NGO Advisory Lead',
     date: '2025-05-10',
+    lastUpdated: '2025-05-10',
     readTime: '10 min read',
     image:
       'https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -84,6 +104,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Sarah Kiggundu',
     authorRole: 'Audit Partner',
     date: '2025-04-22',
+    lastUpdated: '2025-04-22',
     readTime: '5 min read',
     image:
       'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -105,6 +126,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Michael Ssali',
     authorRole: 'Forensic Services Lead',
     date: '2025-04-05',
+    lastUpdated: '2025-04-05',
     readTime: '7 min read',
     image:
       'https://images.pexels.com/photos/534220/pexels-photo-534220.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -126,6 +148,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Daniel Okware',
     authorRole: 'Tax Director',
     date: '2025-03-18',
+    lastUpdated: '2025-03-18',
     readTime: '9 min read',
     image:
       'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200',

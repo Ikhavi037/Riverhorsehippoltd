@@ -4,6 +4,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+  experimental: { cpus: 1, webpackBuildWorker: false, workerThreads: false },
   async headers() {
     return [
       {

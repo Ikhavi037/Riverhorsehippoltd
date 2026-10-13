@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { Linkedin, Twitter, Facebook, Instagram, Youtube, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
@@ -59,17 +60,17 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 gap-10 py-14 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
-                <svg viewBox="0 0 32 32" className="h-6 w-6" fill="none" aria-hidden="true">
-                  <path d="M8 22C8 22 6 18 10 14C14 10 18 12 20 14C22 16 22 20 20 22C18 24 14 24 12 22C10 20 8 22 8 22Z" fill="#D4AF37" />
-                  <circle cx="14" cy="16" r="1.5" fill="#0B132B" />
-                  <path d="M20 12C20 12 22 10 24 11" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </div>
+            <Link href="/" className="inline-flex items-center gap-3" aria-label="Riverhorse Hippo home">
               <span className="heading-font text-lg font-bold text-white">
                 Riverhorse<span className="text-gold-400"> Hippo</span>
               </span>
+              <Image
+                src="/riverhorse-mark.png"
+                alt="Riverhorse Hippo logo"
+                width={64}
+                height={48}
+                className="h-12 w-16 rounded-md object-cover"
+              />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">
               {siteConfig.tagline} Professional business advisory and financial services for startups, SMEs, NGOs, corporates, and public institutions.

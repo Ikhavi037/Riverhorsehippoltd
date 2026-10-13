@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -75,10 +76,17 @@ export function SiteHeader() {
         <Container>
           <nav className="flex h-16 items-center justify-between lg:h-20" aria-label="Main navigation">
             <Link href="/" className="flex items-center gap-2.5" aria-label="Riverhorse Hippo home">
-              <Logo />
-              <span className="heading-font text-lg font-bold tracking-tight text-navy-900 dark:text-white">
+              <span className="heading-font text-base font-bold tracking-tight text-navy-900 dark:text-white sm:text-lg">
                 Riverhorse<span className="text-gold-500"> Hippo</span>
               </span>
+              <Image
+                src="/riverhorse-mark.png"
+                alt="Riverhorse Hippo logo"
+                width={52}
+                height={42}
+                className="h-10 w-12 rounded-md object-cover lg:h-12 lg:w-14"
+                priority
+              />
             </Link>
 
             {/* Desktop nav */}
@@ -216,20 +224,5 @@ export function SiteHeader() {
         </AnimatePresence>
       </header>
     </>
-  );
-}
-
-function Logo() {
-  return (
-    <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-navy-gradient">
-      <svg viewBox="0 0 32 32" className="h-6 w-6" fill="none" aria-hidden="true">
-        <path
-          d="M8 22C8 22 6 18 10 14C14 10 18 12 20 14C22 16 22 20 20 22C18 24 14 24 12 22C10 20 8 22 8 22Z"
-          fill="#D4AF37"
-        />
-        <circle cx="14" cy="16" r="1.5" fill="#0B132B" />
-        <path d="M20 12C20 12 22 10 24 11" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    </div>
   );
 }
